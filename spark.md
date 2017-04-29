@@ -39,5 +39,23 @@
  ___
  
  
+ ### Latency
+ 
+ Additional complexity introduced in distributed computation -
+ + Node Churning (Partial failure) - Nodes involved in computation can go down
+ + Latency - Specially operations involving network latency (Cannot be masked completely, has an impact on the programming model)
+ 
+ Spark handles the above two issues very well
+ 
+ Reading 1 MB sequentially from memory - 20 micro seconds
+ Reading 1 MB sequentially from disk - 20 milli seconds
+ *100 times difference in time taken*
+ 
+ Broadly
+ + Memory opertions - Fastest
+ + Disk operations - slow
+ + Network operations - slowest
+ Network operations are a million times slower than memory operations for more perspective, check (Humanized Latency Numbers)[https://gist.github.com/hellerbarde/2843375]
+ 
  
  
