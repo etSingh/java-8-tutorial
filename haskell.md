@@ -75,3 +75,14 @@ ghci> 10 `div` 2
 `div` - Integral division
 
 #### Defining custom functions
+
+```haskell
+-- Present in a file called first.hs
+doubleMe x = x * 2
+-----------------------------------
+-- From ghci
+Prelude> :l first
+*Main> doubleMe 2
+4
+```
+
