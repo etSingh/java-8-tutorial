@@ -79,10 +79,36 @@ ghci> 10 `div` 2
 ```haskell
 -- Present in a file called first.hs
 doubleMe x = x * 2
+doubleUS x y = x * 2 + y * 2
 -----------------------------------
 -- From ghci
 Prelude> :l first
 *Main> doubleMe 2
 4
 ```
+
++ Functions are defined in the following syntax: `function_name param1 param2 ..paramN = functionBody`
++ When you are chaining functions you have to include the function call in a parameter that is to be used as the input for the next function
+
+```haskell
+*Main> doubleMe (doubleMe 2)
+8
+*Main> doubleUS (doubleMe 2) (doubleMe 4)
+24
+```
+The function doubleUS can also be composed using doubleMe
+```haskell
+doubleUs x y = doubleMe x + doubleMe y   
+```
+**Design Pattern - Make basic functions that work well and compose more complex functions using them**
++ Functions in haskell don't have a particular order, you can define `doubleMe` after defining `doubleUS`
+
+#### If Statememts
+
+```haskell
+canIDrive age = if age >= 18
+                  then "Yes"
+                  else "No, come back after " ++ show (18 - age) ++ " years"
+```
+
 
